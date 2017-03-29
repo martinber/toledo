@@ -17,10 +17,10 @@ mouse = toledo.input.Mouse()
 assets = toledo.Assets()
 
 # cargar la imagen de una pelota
-im_pelota = assets.load_sprite("ball.png")
+assets.load_sprite("ball", "ball.png")
 # crear un rectangulo que va a representar a la pelota, hay que darle un
 # vector que es la posicion y otro que es el tamano
-rect_pelota = toledo.utils.Rect([0, 0], [111, 111])
+rect_ball = toledo.utils.Rect([0, 0], [111, 111])
 
 # crear un controlador, es un objeto que se encarga de llamar a tus funciones en
 # el momento correcto.
@@ -66,6 +66,6 @@ def myloop():
     # si borran o comentan esta linea
     screen.fill(toboso.graphics.color.BLACK)
     # dibujar la pelota en las coodenadas del rectangulo
-    screen.draw(im_pelota, rect_pelota)
+    screen.draw(assets.get_sprite("ball"), rect_pelota)
     # mostrar la pantalla
     screen.update()

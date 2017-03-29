@@ -9,3 +9,11 @@ Lo hago porque a veces **pygame** es difícil de usar o porque le faltan cosas.
 -----------------------------
 
 Ver el ejemplo que está en la carpeta `test`.
+
+-----------------------------
+
+TODO:
+
+[ ] Funciones necesarias para que funcione la prueba
+[ ] Excepciones
+[ ] Sonidos
