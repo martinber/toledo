@@ -8,7 +8,7 @@ class Screen:
 
 
     def fill(self, color):
-        self._screen.fill(color.get_pygame_color())
+        self._screen.fill(color.get_components())
 
 
     def draw(self, sprite, rect):
@@ -17,4 +17,4 @@ class Screen:
 
 
     def update(self):
-        self._screen.update()
+        pygame.display.flip()

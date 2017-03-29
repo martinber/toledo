@@ -14,6 +14,9 @@ Ver el ejemplo que está en la carpeta `test`.
 
 TODO:
 
-[ ] Funciones necesarias para que funcione la prueba
-[ ] Excepciones
-[ ] Sonidos
+- [ ] Funciones necesarias para que funcione la prueba
+    - [X] Graficos y controlador simple
+    - [ ] Input
+- [ ] Escalado de imagenes
+- [ ] Excepciones
+- [ ] Sonidos

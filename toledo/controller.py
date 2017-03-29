@@ -1,6 +1,6 @@
+import pygame
 
-
-def Controller:
+class Controller:
 
     def __init__(self, init, loop, fps):
         self._init = init
@@ -22,9 +22,11 @@ def Controller:
 
         self._init()
         while 1:
-            clock.tick(self._fps)
+            self._clock.tick(self._fps)
 
             for event in pygame.event.get():
                 # si se apreto el boton de cerrar
                 if event.type == pygame.QUIT:
                     sys.exit()
+
+            self._loop()

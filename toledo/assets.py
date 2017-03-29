@@ -1,12 +1,12 @@
-import graphics
+import toledo.graphics
 
 class Assets:
 
     sprites = {}
 
     def load_sprite(self, name, image_path):
-        s = graphics.Sprite(image_path)
-        sprites[name] = s
+        s = toledo.graphics.Sprite(image_path)
+        self.sprites[name] = s
 
     def get_sprite(self, name):
-        return sprites[name]
+        return self.sprites[name]
