@@ -11,9 +11,11 @@ class Screen:
         self._screen.fill(color.get_components())
 
 
-    def draw(self, sprite, rect):
-        self._screen.blit(sprite.get_pygame_image(),
-                          rect.get_pygame_rect())
+    def draw(self, sprite, rect, angle=0):
+        image = sprite.get_pygame_image()
+        image = pygame.transform.rotate(image, angle)
+
+        self._screen.blit(image, rect.get_pygame_rect())
 
 
     def update(self):

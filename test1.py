@@ -12,6 +12,9 @@ screen = toledo.graphics.Screen(tamano_pantalla)
 # crear un objeto que administra las imagenes y sonidos
 assets = toledo.Assets()
 
+# crear objeto que maneja todo lo que sea teclado
+keyboard = toledo.input.Keyboard()
+
 # cargar la imagen de una pelota
 assets.load_sprite("ball", "./test_assets/ball.png")
 # crear un rectangulo que va a representar a la pelota, hay que darle un
@@ -22,6 +25,10 @@ def myinit():
     '''
     Esta funcion es llamada por el controlador cuando se terminan de cargar los
     assets.
+
+    Actualmente es lo mismo poner cosas arriba o adentro de esto. La idea es
+    cargar las cosas (imagenes y toledo) arriba, acá adentro setear variables y
+    otras cosas, por ahora esto no sirve para nada.
     '''
     print("Empezó el juego!")
 
@@ -29,6 +36,15 @@ def myloop():
     '''
     Esta funcion es llamada por el controlador 60 veces por segundo.
     '''
+
+    if keyboard.is_pressed(keyboard.K_UP):
+        rect_ball.y -= 5
+    if keyboard.is_pressed(keyboard.K_DOWN):
+        rect_ball.y += 5
+    if keyboard.is_pressed(keyboard.K_LEFT):
+        rect_ball.x -= 5
+    if keyboard.is_pressed(keyboard.K_RIGHT):
+        rect_ball.x += 5
 
     # pintar la pantalla de negro para tapar el frame anterior, fijense que pasa
     # si borran o comentan esta linea
