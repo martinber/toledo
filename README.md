@@ -28,15 +28,11 @@ toledo.
 
 - Leer el mouse (solamente polling)
 - Dibujar sprites (rotados y escalados)
+- Delta-time (creo que con esto se soluciona el stuttering)
 - ???
 
 # TODO
 
-- [X] Funciones necesarias para que funcione la prueba
-    - [X] Graficos y controlador simple
-    - [X] Input
-- [ ] Mouse
-- [ ] Eventos
-- [ ] Escalado de imagenes
-- [ ] Excepciones
-- [ ] Sonidos
+- Eventos
+- Excepciones
+- Sonidos
