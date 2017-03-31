@@ -68,7 +68,7 @@ def myloop():
 # crear un controlador, es un objeto que se encarga de llamar a tus funciones en
 # el momento correcto.
 # sirve sobre todo para que llame a nuestro loop 60 veces por segundo
-control = toledo.Controller(init=myinit, loop=myloop, fps=60)
+control = toledo.Controller(myinit, myloop, 60)
 
 # empieza a llamar a tus funciones, el programa entra a esta función y no sale
 # hasta que se cierre el juego

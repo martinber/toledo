@@ -24,7 +24,7 @@ toledo.
 - Pintar y actualizar la pantalla
 - Dibujar sprites (sin rotar ni escalar)
 
-# toledo 0.2
+## toledo 0.2
 
 - Leer el mouse (solamente polling)
 - Dibujar sprites (rotados y escalados)
