@@ -6,13 +6,31 @@ encarga de hacer todo (a escondidas usa **pygame** pero no te importa).
 
 Lo hago porque a veces **pygame** es difícil de usar o porque le faltan cosas.
 
------------------------------
+Actualmente la versión es **toledo 0.1**
 
-Ver el ejemplo que está en la carpeta `test`.
+# Ejemplos
 
------------------------------
+Ver los ejemplos en la carpeta `tests`. Hay un ejemplo para cada versión de
+toledo.
 
-TODO:
+# Cambios
+
+## toledo 0.1
+
+- Crear pantalla
+- Cargar sprites
+- Leer el teclado (solamente polling)
+- El controlador
+- Pintar y actualizar la pantalla
+- Dibujar sprites (sin rotar ni escalar)
+
+# toledo 0.2
+
+- Leer el mouse (solamente polling)
+- Dibujar sprites (rotados y escalados)
+- ???
+
+# TODO
 
 - [X] Funciones necesarias para que funcione la prueba
     - [X] Graficos y controlador simple

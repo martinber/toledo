@@ -1,8 +1,21 @@
 '''
 Este es un ejemplo de prueba para comprobar que toledo funcione bien.
+
+Se prueban las funciones de toledo 0.1:
+
+    - Crear pantalla
+    - Cargar sprites
+    - Leer el teclado (solamente polling)
+    - El controlador
+    - Pintar y actualizar la pantalla
+    - Dibujar sprites (sin rotar ni escalar)
 '''
 
-# importar todas mis cosas
+# ignoren esto
+import sys
+sys.path.append("../")
+
+# importar toledo
 import toledo
 
 # crear pantalla, hay que darle el tamano de la pantalla en un vector
