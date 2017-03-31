@@ -45,13 +45,14 @@ screen.draw(sprite, rect)
 ```
 
 Dibuja el sprite (`toledo.graphics.Sprite`) en la posicion dada por el
-rectángulo `toledo.util.Rect`
+rectángulo `toledo.util.Rect`. Pero la pantalla no se muestra al jugador hasta
+que uno llame a la función `screen.update()`
 
 ```
 screen.update()
 ```
 
-Actualiza lo que ve el jugador
+Actualiza lo que ve el jugador.
 
 
 ## input
@@ -81,31 +82,24 @@ keyboard.K_SPACE
 keyboard.K_RETURN
 ```
 
-## Assets
-
-```
-assets = toledo.Assets()
-```
-
-Crea un objeto que se encarga de guardar todos los sprites que necesitas
-
-```
-assets.load_sprite(name, path)
-```
-
-Crea un sprite a partir del archivo ubicado en el path y lo guarda con el nombre
-dado
-
-```
-assets.get_sprite(name)
-```
-
-Devuelve el sprite guardado con ese nombre
-
 ## Controller
 
 ```
 control = toledo.Controller(init, loop, fps)
 ```
 
-Crea un controlador que llama a las funciones en el momento indocado
+Crea un controlador que más tarde se va a encargar de llamar a tus funciones
+(`init` y `loop`) en el momento indicado.
+
+```
+control.start()
+```
+
+Indica al controlador que empiece a trabajar. El programa entra a esa función y
+no sale hasta que se cierre el juego, entonces siempre va a ser la última línea
+del programa.
+
+Cuando uno llama a esa función, el controlador va a cargar todas las imágenes
+y sonidos, cuando se terminen de cargar las cosas, se va a ejecutar la función
+`init()`. Después va a ejecutar la función `loop()` 60 veces por segundo para
+siempre (si `fps` es igual a 60).

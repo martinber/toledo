@@ -14,9 +14,11 @@ Ver el ejemplo que está en la carpeta `test`.
 
 TODO:
 
-- [ ] Funciones necesarias para que funcione la prueba
+- [X] Funciones necesarias para que funcione la prueba
     - [X] Graficos y controlador simple
-    - [ ] Input
+    - [X] Input
+- [ ] Mouse
+- [ ] Eventos
 - [ ] Escalado de imagenes
 - [ ] Excepciones
 - [ ] Sonidos

@@ -9,14 +9,11 @@ import toledo
 tamano_pantalla = [1000, 800]
 screen = toledo.graphics.Screen(tamano_pantalla)
 
-# crear un objeto que administra las imagenes y sonidos
-assets = toledo.Assets()
-
 # crear objeto que maneja todo lo que sea teclado
 keyboard = toledo.input.Keyboard()
 
 # cargar la imagen de una pelota
-assets.load_sprite("ball", "./test_assets/ball.png")
+sprite_ball = toledo.graphics.Sprite("./test_assets/ball.png")
 # crear un rectangulo que va a representar a la pelota, hay que darle un
 # vector que es la posicion y otro que es el tamano
 rect_ball = toledo.util.Rect(0, 0, 111, 111)
@@ -50,7 +47,7 @@ def myloop():
     # si borran o comentan esta linea
     screen.fill(toledo.graphics.color.BLACK)
     # dibujar la pelota en las coodenadas del rectangulo
-    screen.draw(assets.get_sprite("ball"), rect_ball)
+    screen.draw(sprite_ball, rect_ball)
     # mostrar la pantalla
     screen.update()
 
