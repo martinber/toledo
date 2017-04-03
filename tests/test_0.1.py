@@ -42,7 +42,7 @@ def myinit():
     '''
     print("Empezó el juego!")
 
-def myloop():
+def myloop(dt):
     '''
     Esta funcion es llamada por el controlador 60 veces por segundo.
     '''

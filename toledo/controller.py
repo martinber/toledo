@@ -23,11 +23,13 @@ class Controller:
 
         self._init()
         while 1:
-            self._clock.tick(self._fps)
+            # limitar FPS y al mismo tiempo obtener el deltatime (en ms) y
+            # convertir a segundos
+            dt = self._clock.tick(self._fps) / 1000
 
             for event in pygame.event.get():
                 # si se apreto el boton de cerrar
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-            self._loop()
+            self._loop(dt)
