@@ -12,7 +12,11 @@ Se prueban las funciones de toledo 0.2:
 
     - Leer el mouse (solamente polling)
     - Dibujar sprites (rotados y escalados)
+    - Dibujar sprites con anchor en top-left o center
+    - Deltatime
 '''
+
+# TODO: Mejor ejemplo
 
 # ignoren esto
 import sys
@@ -34,6 +38,8 @@ sprite_ball = toledo.graphics.Sprite("./test_assets/ball.png")
 # crear un rectangulo que va a representar a la pelota, hay que darle un
 # vector que es la posicion y otro que es el tamano
 rect_ball = toledo.util.Rect(0, 0, 111, 111)
+# otro para otra pelota más
+rect_ball_2 = toledo.util.Rect(0, 0, 111, 111)
 # crear una variable que representa el ángulo de rotacion
 angle_ball = 0
 
@@ -48,31 +54,43 @@ def myinit():
     '''
     print("Empezó el juego!")
 
-def myloop():
+def myloop(dt):
     '''
-    Esta funcion es llamada por el controlador 60 veces por segundo.
+    Esta funcion es llamada por el controlador 60 veces por segundo. Además
+    es pasado un argumento que es el tiempo pasado entre este frame y el
+    anterior en segundos
     '''
+    global angle_ball
 
     x, y = mouse.get_position()
     rect_ball.x = x
     rect_ball.y = y
 
     if keyboard.is_pressed(keyboard.K_UP):
-        rect_ball.h -= 5
+        rect_ball.h -= 200 * dt
+        rect_ball_2.y -= 200 * dt
     if keyboard.is_pressed(keyboard.K_DOWN):
-        rect_ball.h += 5
+        rect_ball.h += 200 * dt
+        rect_ball_2.y += 200 * dt
     if keyboard.is_pressed(keyboard.K_LEFT):
-        rect_ball.w -= 5
+        rect_ball.w -= 200 * dt
+        rect_ball_2.x -= 200 * dt
     if keyboard.is_pressed(keyboard.K_RIGHT):
-        rect_ball.w += 5
-    if keyboard.is_pressed(keyboard.K_SPACE):
-        angle_ball += 5
+        rect_ball.w += 200 * dt
+        rect_ball_2.x += 200 * dt
+
+    if mouse.is_pressed(mouse.M_LEFT):
+        angle_ball += 40 * dt
+    if mouse.is_pressed(mouse.M_RIGHT):
+        angle_ball -= 40 * dt
 
     # pintar la pantalla de negro para tapar el frame anterior, fijense que pasa
     # si borran o comentan esta linea
     screen.fill(toledo.graphics.color.BLACK)
-    # dibujar la pelota en las coodenadas del rectangulo y con la rotación dada
-    screen.draw(sprite_ball, rect_ball, angle_ball)
+    # dibujar las pelotas en las coodenadas del rectangulo y con la rotación
+    # dada
+    screen.draw_rotated(sprite_ball, rect_ball, angle_ball, anchor=screen.ANCHOR_CENTER)
+    screen.draw(sprite_ball, rect_ball_2)
     # mostrar la pantalla
     screen.update()
 
