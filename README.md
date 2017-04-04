@@ -19,7 +19,7 @@ toledo.
 - Para poder escalar/rotar imágenes con antialiasing, las imágenes deben ser de
     32 o 34 bits
 - Suele tirar segfault cuando el tamaño de la imagen es de 0px (creo)
-- No dibujen imágenes rotadas **y** escaladas negativamente **con** anchor
+- No dibujen imágenes rotadas **y** escaladas negativamente **con** anclaje
     top-left. Esa combinación no anda, pero pueden hacer esas cosas por separado
     o dos de esas cosas al mismo tiempo, pero las tres juntas no. Es porque no
     me puse a hacer la matemática para ese caso.
@@ -27,6 +27,8 @@ toledo.
     gasto mucha CPU, por ahora lo dejo así.
 - Hay problemas de rendmimiento cuando escalo las texturas muy grandes. No se si
     es problema de escalado o de dibujado de texturas grandes.
+- Los sprites vibran mucho cuando son rotados debido a redondeos, no sé como
+    solucionar eso.
 
 # Cambios
 
@@ -45,6 +47,12 @@ toledo.
 - Dibujar sprites (rotados y escalados)
 - Dibujar sprites con anchor en _center_ o _top-left_
 - Deltatime
+
+## toledo 0.3
+
+- Documentación
+- Más teclas para el teclado
+- ???
 
 # TODO
 

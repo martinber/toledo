@@ -3,6 +3,8 @@ Este es un ejemplo de prueba para comprobar que toledo funcione bien.
 
 Se prueban las funciones de toledo 0.2:
 
+    Viejo:
+    
     - Crear pantalla
     - Cargar sprites
     - El controlador
