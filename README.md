@@ -15,10 +15,9 @@ toledo.
 
 # Notas
 
-- Por ahora antes de que correr los ejemplos hay que hacer `cd` a la carpeta
+- Por ahora antes de correr los ejemplos hay que hacer `cd` a la carpeta.
 - Para poder escalar/rotar imágenes con antialiasing, las imágenes deben ser de
-    32 o 34 bits
-- Suele tirar segfault cuando el tamaño de la imagen es de 0px (creo)
+    32 o 34 bits.
 - No dibujen imágenes rotadas **y** escaladas negativamente **con** anclaje
     top-left. Esa combinación no anda, pero pueden hacer esas cosas por separado
     o dos de esas cosas al mismo tiempo, pero las tres juntas no. Es porque no
