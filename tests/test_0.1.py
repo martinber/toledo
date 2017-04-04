@@ -27,8 +27,7 @@ keyboard = toledo.input.Keyboard()
 
 # cargar la imagen de una pelota
 sprite_ball = toledo.graphics.Sprite("./test_assets/ball.png")
-# crear un rectangulo que va a representar a la pelota, hay que darle un
-# vector que es la posicion y otro que es el tamano
+# crear un rectangulo que va a representar a la pelota, (x, y, w, h)
 rect_ball = toledo.util.Rect(0, 0, 111, 111)
 
 def myloop(dt):
