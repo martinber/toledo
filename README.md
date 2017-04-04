@@ -6,12 +6,27 @@ encarga de hacer todo (a escondidas usa **pygame** pero no te importa).
 
 Lo hago porque a veces **pygame** es difícil de usar o porque le faltan cosas.
 
-Actualmente la versión es **toledo 0.1**
+Actualmente la versión es **toledo 0.2**
 
 # Ejemplos
 
 Ver los ejemplos en la carpeta `tests`. Hay un ejemplo para cada versión de
 toledo.
+
+# Notas
+
+- Por ahora antes de que correr los ejemplos hay que hacer `cd` a la carpeta
+- Para poder escalar/rotar imágenes con antialiasing, las imágenes deben ser de
+    32 o 34 bits
+- Suele tirar segfault cuando el tamaño de la imagen es de 0px (creo)
+- No dibujen imágenes rotadas **y** escaladas negativamente **con** anchor
+    top-left. Esa combinación no anda, pero pueden hacer esas cosas por separado
+    o dos de esas cosas al mismo tiempo, pero las tres juntas no. Es porque no
+    me puse a hacer la matemática para ese caso.
+- Tenemos problemas de stuttering culpa de `pygame`/`sdl`. Si uso otro método
+    gasto mucha CPU, por ahora lo dejo así.
+- Hay problemas de rendmimiento cuando escalo las texturas muy grandes. No se si
+    es problema de escalado o de dibujado de texturas grandes.
 
 # Cambios
 
@@ -28,11 +43,12 @@ toledo.
 
 - Leer el mouse (solamente polling)
 - Dibujar sprites (rotados y escalados)
-- Delta-time (creo que con esto se soluciona el stuttering)
-- ???
+- Dibujar sprites con anchor en _center_ o _top-left_
+- Deltatime
 
 # TODO
 
 - Eventos
 - Excepciones
 - Sonidos
+- Documentacion

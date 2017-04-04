@@ -43,17 +43,6 @@ rect_ball_2 = toledo.util.Rect(0, 0, 111, 111)
 # crear una variable que representa el ángulo de rotacion
 angle_ball = 0
 
-def myinit():
-    '''
-    Esta funcion es llamada por el controlador cuando se terminan de cargar los
-    assets.
-
-    Actualmente es lo mismo poner cosas arriba o adentro de esto. La idea es
-    cargar las cosas (imagenes y toledo) arriba, acá adentro setear variables y
-    otras cosas, por ahora esto no sirve para nada.
-    '''
-    print("Empezó el juego!")
-
 def myloop(dt):
     '''
     Esta funcion es llamada por el controlador 60 veces por segundo. Además
@@ -80,16 +69,17 @@ def myloop(dt):
         rect_ball_2.x += 200 * dt
 
     if mouse.is_pressed(mouse.M_LEFT):
-        angle_ball += 40 * dt
+        angle_ball += 80 * dt
     if mouse.is_pressed(mouse.M_RIGHT):
-        angle_ball -= 40 * dt
+        angle_ball -= 80 * dt
 
     # pintar la pantalla de negro para tapar el frame anterior, fijense que pasa
     # si borran o comentan esta linea
     screen.fill(toledo.graphics.color.BLACK)
     # dibujar las pelotas en las coodenadas del rectangulo y con la rotación
     # dada
-    screen.draw_rotated(sprite_ball, rect_ball, angle_ball, anchor=screen.ANCHOR_CENTER)
+    screen.draw(sprite_ball, rect_ball, angle_ball, anchor=screen.ANCHOR_CENTER, smooth=True)
+    screen.draw(sprite_ball, rect_ball, angle_ball, anchor=screen.ANCHOR_TOP_LEFT, smooth=True)
     screen.draw(sprite_ball, rect_ball_2)
     # mostrar la pantalla
     screen.update()
@@ -98,7 +88,7 @@ def myloop(dt):
 # crear un controlador, es un objeto que se encarga de llamar a tus funciones en
 # el momento correcto.
 # sirve sobre todo para que llame a nuestro loop 60 veces por segundo
-control = toledo.Controller(myinit, myloop, 60)
+control = toledo.Controller(myloop, 60)
 
 # empieza a llamar a tus funciones, el programa entra a esta función y no sale
 # hasta que se cierre el juego

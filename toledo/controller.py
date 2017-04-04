@@ -3,8 +3,7 @@ import sys
 
 class Controller:
 
-    def __init__(self, init, loop, fps):
-        self._init = init
+    def __init__(self, loop, fps):
         self._loop = loop
         self._fps = fps
 
@@ -21,7 +20,6 @@ class Controller:
 
     def _main_loop(self):
 
-        self._init()
         while 1:
             # limitar FPS y al mismo tiempo obtener el deltatime (en ms) y
             # convertir a segundos

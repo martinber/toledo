@@ -31,17 +31,6 @@ sprite_ball = toledo.graphics.Sprite("./test_assets/ball.png")
 # vector que es la posicion y otro que es el tamano
 rect_ball = toledo.util.Rect(0, 0, 111, 111)
 
-def myinit():
-    '''
-    Esta funcion es llamada por el controlador cuando se terminan de cargar los
-    assets.
-
-    Actualmente es lo mismo poner cosas arriba o adentro de esto. La idea es
-    cargar las cosas (imagenes y toledo) arriba, acá adentro setear variables y
-    otras cosas, por ahora esto no sirve para nada.
-    '''
-    print("Empezó el juego!")
-
 def myloop(dt):
     '''
     Esta funcion es llamada por el controlador 60 veces por segundo.
@@ -68,7 +57,7 @@ def myloop(dt):
 # crear un controlador, es un objeto que se encarga de llamar a tus funciones en
 # el momento correcto.
 # sirve sobre todo para que llame a nuestro loop 60 veces por segundo
-control = toledo.Controller(myinit, myloop, 60)
+control = toledo.Controller(myloop, 60)
 
 # empieza a llamar a tus funciones, el programa entra a esta función y no sale
 # hasta que se cierre el juego
