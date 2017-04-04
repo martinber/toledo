@@ -89,6 +89,7 @@ class Screen:
 
         self._screen.blit(image, pos)
 
+
     def update(self):
         '''
         Actualiza lo que se ve en pantalla.
@@ -128,6 +129,7 @@ class Screen:
             return pygame.transform.smoothscale(image, size)
         else:
             return pygame.transform.scale(image, size)
+
 
     def _rotate_image(self, image, angle, smooth):
         '''
@@ -183,8 +185,11 @@ class Screen:
         # calcular tamaño de la imagen ya rotada, siempre positivo. Puede que
         # haya una mejor forma pero funciona
         rotated_size = [
-            abs(abs(rect.w) * math.cos(angle_rads)) + abs(abs(rect.h) * math.sin(angle_rads)),
-            abs(abs(rect.h) * math.cos(angle_rads)) + abs(abs(rect.w) * math.sin(angle_rads))
+            abs(abs(rect.w) * math.cos(angle_rads)) +
+                    abs(abs(rect.h) * math.sin(angle_rads)),
+
+            abs(abs(rect.h) * math.cos(angle_rads)) +
+                    abs(abs(rect.w) * math.sin(angle_rads))
         ]
 
         if anchor == None:
@@ -193,6 +198,7 @@ class Screen:
         if anchor == self.ANCHOR_CENTER:
             pos = [rect.x - rotated_size[0] / 2,
                    rect.y - rotated_size[1] / 2]
+
         elif anchor == self.ANCHOR_TOP_LEFT:
             # corrección para imagenes rotadas. También puede que haya una mejor
             # forma
@@ -228,6 +234,7 @@ class Screen:
                 pos[1] = rect.y - abs(rect.h)
             else:
                 pos[1] = rect.y - correction[1]
+
         else:
             print("ERROR")
 

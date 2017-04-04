@@ -13,5 +13,6 @@ class Rect:
         self.w = w
         self.h = h
 
+
     def get_pygame_rect(self):
         return pygame.Rect([self.x, self.y], [self.w, self.h])
