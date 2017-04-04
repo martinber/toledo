@@ -66,6 +66,7 @@ class Screen:
 
         Examples
         --------
+        ::
 
             screen = toledo.graphics.Screen(screen_size)
             ...
