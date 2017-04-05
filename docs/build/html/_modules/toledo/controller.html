@@ -162,6 +162,36 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <div class="viewcode-block" id="Controller"><a class="viewcode-back" href="../../toledo.Controller.html#toledo.Controller">[docs]</a><span class="k">class</span> <span class="nc">Controller</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Objeto que se encarga del flujo del programa, del loop principal.</span>
+
+<span class="sd">    Llama a la función dada un cierto número de veces por segundo implementando</span>
+<span class="sd">    un loop. Además chequea si el juego está siendo cerrado por el usuario</span>
+<span class="sd">    leyendo los eventos de ``pygame``.</span>
+
+<span class="sd">    Se debe llamar a la función ``start()`` que comienza el loop principal.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        def loop(dt):</span>
+<span class="sd">            print(&quot;Tiempo entre frame actual y anterior en segundos:&quot;, dt)</span>
+
+<span class="sd">        control = toledo.Controller(loop, 60)</span>
+<span class="sd">        control.start()</span>
+
+<span class="sd">        print(&quot;El juego se está cerrando&quot;)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    loop : Callable[[float], [None]]</span>
+<span class="sd">        Función a llamar varias veces por segundo. La función debe aceptar un</span>
+<span class="sd">        argumento numérico que es el deltatime entre el frame actual y el</span>
+<span class="sd">        anterior.</span>
+<span class="sd">    fps : float</span>
+<span class="sd">        Número de veces por segundo que se llamará a la función dada.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loop</span><span class="p">,</span> <span class="n">fps</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_loop</span> <span class="o">=</span> <span class="n">loop</span>
@@ -171,10 +201,28 @@
 
 
 <div class="viewcode-block" id="Controller.start"><a class="viewcode-back" href="../../toledo.Controller.html#toledo.Controller.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Comenzar a llamar a la función dada.</span>
+
+<span class="sd">        Una vez que el programa entra a esta función, no continúa hasta que se</span>
+<span class="sd">        cierre el juego. Entonces el código que esté después de esta llamada se</span>
+<span class="sd">        ejecutará recién en el cierre del juego.</span>
+
+<span class="sd">        Detecta cuando el jugador cierra el juego y termina la ejecución del</span>
+<span class="sd">        loop.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_main_loop</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="Controller.get_fps"><a class="viewcode-back" href="../../toledo.Controller.html#toledo.Controller.get_fps">[docs]</a>    <span class="k">def</span> <span class="nf">get_fps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Devuelve el parámetro ``fps`` dado en el constructor.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            FPS que se están respetando actualmente.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fps</span></div>
 
 

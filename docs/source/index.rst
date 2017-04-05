@@ -6,7 +6,7 @@
 Documentación de toledo!
 ========================
 
-Acá está toda la documentación, acá está el `repositorio`_ (código fuente).
+En este sitio está toda la documentación, acá está el `repositorio`_ (código fuente).
 
 .. toctree::
    :maxdepth: 3
@@ -29,7 +29,7 @@ encarga de hacer todo (a escondidas usa **pygame** pero no te importa).
 
 Lo hago porque a veces **pygame** es difícil de usar o porque le faltan cosas.
 
-Actualmente la versión es **toledo 0.2**
+Actualmente la versión es **toledo 0.2.5**
 
 Cómo aprender?
 ==============

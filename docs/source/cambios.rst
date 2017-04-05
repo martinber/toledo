@@ -22,6 +22,12 @@ toledo 0.2
 - Dibujar sprites con anchor en *center* o *top-left*
 - Deltatime
 
+toledo 0.2.5
+^^^^^^^^^^^^
+
+- Documentación
+- No me acuerdo si cambié algo en el código
+
 toledo 0.3 (en desarrollo)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 

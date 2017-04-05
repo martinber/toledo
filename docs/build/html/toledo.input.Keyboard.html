@@ -179,6 +179,10 @@
 <dt id="toledo.input.Keyboard">
 <em class="property">class </em><code class="descclassname">toledo.input.</code><code class="descname">Keyboard</code><a class="reference internal" href="_modules/toledo/input/keyboard.html#Keyboard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.input.Keyboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Representa al teclado y tiene todo lo necesario para leerlo.</p>
+<p>Más abajo se pueden ver las constantes que se pueden usar. Cada una
+representa a una tecla. Tienen los mismos valores y nombres que los de
+<code class="docutils literal"><span class="pre">pygame</span></code>.</p>
 <dl class="attribute">
 <dt id="toledo.input.Keyboard.K_DOWN">
 <code class="descname">K_DOWN</code><em class="property"> = 274</em><a class="headerlink" href="#toledo.input.Keyboard.K_DOWN" title="Permalink to this definition">¶</a></dt>
@@ -212,7 +216,29 @@
 <dl class="method">
 <dt id="toledo.input.Keyboard.is_pressed">
 <code class="descname">is_pressed</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/input/keyboard.html#Keyboard.is_pressed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.input.Keyboard.is_pressed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Devuelve <code class="docutils literal"><span class="pre">True</span></code> si la tecla está apretada y <code class="docutils literal"><span class="pre">False</span></code> en caso
+contrario.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">keyb</span> <span class="o">=</span> <span class="n">toledo</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">Keyboard</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="k">if</span> <span class="n">keyb</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">(</span><span class="n">keyb</span><span class="o">.</span><span class="n">K_UP</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Flecha arriba está presionada en este momento&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>int</em>) &#8211; Código de la tecla a la que se le quiere conocer el estado. Usar las
+constantes definidas en esta clase.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> si la tecla está apretada y <code class="docutils literal"><span class="pre">False</span></code> en caso contrario.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
