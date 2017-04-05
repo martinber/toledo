@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>toledo.graphics.Screen class &mdash; toledo 0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="toledo 0.2 documentation" href="index.html"/>
+        <link rel="up" title="toledo.graphics package" href="toledo.graphics.html"/>
+        <link rel="next" title="toledo.graphics.Sprite class" href="toledo.graphics.Sprite.html"/>
+        <link rel="prev" title="toledo.graphics.Color class" href="toledo.graphics.Color.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> toledo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="toledo.html">toledo package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="toledo.graphics.html">toledo.graphics package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="toledo.graphics.Color.html">toledo.graphics.Color class</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">toledo.graphics.Screen class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toledo.graphics.Sprite.html">toledo.graphics.Sprite class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toledo.input.html">toledo.input package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toledo.util.html">toledo.util package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toledo.Controller.html">toledo.Controller class</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">toledo</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="toledo.html">toledo package</a> &raquo;</li>
+        
+          <li><a href="toledo.graphics.html">toledo.graphics package</a> &raquo;</li>
+        
+      <li>toledo.graphics.Screen class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/toledo.graphics.Screen.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="toledo-graphics-screen-class">
+<h1>toledo.graphics.Screen class<a class="headerlink" href="#toledo-graphics-screen-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="toledo.graphics.Screen">
+<em class="property">class </em><code class="descclassname">toledo.graphics.</code><code class="descname">Screen</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/screen.html#Screen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Se encarga de controlar lo que ve el jugador en la pantalla.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> (<em>List</em><em>[</em><em>int</em><em>]</em><em></em>) &#8211; Tamaño de la pantalla, <code class="docutils literal"><span class="pre">[w,</span> <span class="pre">h]</span></code>.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Primero se debe crear una instancia de este objeto, luego, en cada loop del
+juego uno debe (en orden):</p>
+<ul class="simple">
+<li>Pintar la pantalla con <code class="docutils literal"><span class="pre">fill()</span></code> para tapar el frame anterior.</li>
+<li>Dibujar todos los sprites con <code class="docutils literal"><span class="pre">draw()</span></code>.</li>
+<li>Actualizar la pantalla con <code class="docutils literal"><span class="pre">update()</span></code>.</li>
+</ul>
+<p class="rubric">Examples</p>
+<p>Acá hay un ejemplo de uso:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># crear la pantalla</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">toledo</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">Screen</span><span class="p">(</span><span class="n">screen_size</span><span class="p">)</span>
+<span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">loop</span><span class="p">():</span> <span class="c1"># función ejecutada una vez en cada frame</span>
+    <span class="o">...</span>
+
+    <span class="c1"># pintar pantalla de negro para tapar frame anterior</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">toledo</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">BLACK</span><span class="p">)</span>
+
+    <span class="c1"># dibujar todo lo que haga falta</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="o">......</span><span class="p">)</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="o">......</span><span class="p">)</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="o">......</span><span class="p">)</span>
+
+    <span class="c1"># por último actualizar pantalla</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="toledo.graphics.Screen.ANCHOR_CENTER">
+<code class="descname">ANCHOR_CENTER</code><em class="property"> = 1</em><a class="headerlink" href="#toledo.graphics.Screen.ANCHOR_CENTER" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> &#8211; Anclaje al centro. Ver función <code class="docutils literal"><span class="pre">draw()</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="toledo.graphics.Screen.ANCHOR_TOP_LEFT">
+<code class="descname">ANCHOR_TOP_LEFT</code><em class="property"> = 0</em><a class="headerlink" href="#toledo.graphics.Screen.ANCHOR_TOP_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> &#8211; Anclaje al borde superior izquierdo. Ver función <code class="docutils literal"><span class="pre">draw()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="toledo.graphics.Screen.draw">
+<code class="descname">draw</code><span class="sig-paren">(</span><em>sprite</em>, <em>rect</em>, <em>angle=0</em>, <em>smooth=False</em>, <em>anchor=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/screen.html#Screen.draw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Screen.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dibujar un sprite en la pantalla.</p>
+<p>No se verán los cambios hasta que se llame a la función
+<code class="docutils literal"><span class="pre">Screen.update()</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sprite</strong> (<a class="reference internal" href="toledo.graphics.Sprite.html#toledo.graphics.Sprite" title="toledo.graphics.Sprite"><em>toledo.graphics.Sprite</em></a>) &#8211; Sprite a dibujar.</li>
+<li><strong>rect</strong> (<em>toledo.Rect</em>) &#8211; Posición en la pantalla en donde dibujar. Se respeta el tamaño dado.</li>
+<li><strong>angle</strong> (<code class="xref py py-obj docutils literal"><span class="pre">float</span></code>, optional) &#8211; Ángulo de rotación en grados, sentido contrario a las agujas del
+reloj.</li>
+<li><strong>smooth</strong> (<code class="xref py py-obj docutils literal"><span class="pre">bool</span></code>, optional) &#8211; Si usar o no antialiasing.</li>
+<li><strong>anchor</strong> (<code class="xref py py-obj docutils literal"><span class="pre">int</span></code>, optional) &#8211; Tipo de anclaje a usar, (por ej. si centrado o esquinado). Usar las
+constantes definidas. Ej: <code class="docutils literal"><span class="pre">Screen.ANCHOR_CENTER</span></code> o
+<code class="docutils literal"><span class="pre">Screen.ANCHOR_TOP_LEFT</span></code>.
+Por defecto es un anclaje top-left.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">=</span> <span class="n">toledo</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">Screen</span><span class="p">(</span><span class="n">screen_size</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="k">def</span> <span class="nf">loop</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">sprite_ball</span><span class="p">,</span> <span class="n">rect_ball</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">angle_ball</span><span class="p">,</span>
+                <span class="n">smooth</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="n">screen</span><span class="o">.</span><span class="n">ANCHOR_TOP_LEFT</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="toledo.graphics.Screen.fill">
+<code class="descname">fill</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/screen.html#Screen.fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Screen.fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pintar la pantalla completamente de un color.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>color</strong> (<a class="reference internal" href="toledo.graphics.Color.html#toledo.graphics.Color" title="toledo.graphics.Color"><em>toledo.graphics.Color</em></a>) &#8211; Color a usar.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="toledo.graphics.Screen.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/screen.html#Screen.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Screen.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Actualiza lo que se ve en pantalla.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="toledo.graphics.Sprite.html" class="btn btn-neutral float-right" title="toledo.graphics.Sprite class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="toledo.graphics.Color.html" class="btn btn-neutral" title="toledo.graphics.Color class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, toboso-team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

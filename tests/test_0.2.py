@@ -4,7 +4,7 @@ Este es un ejemplo de prueba para comprobar que toledo funcione bien.
 Se prueban las funciones de toledo 0.2:
 
     Viejo:
-    
+
     - Crear pantalla
     - Cargar sprites
     - El controlador
@@ -77,7 +77,7 @@ def myloop(dt):
     if mouse.is_pressed(mouse.M_RIGHT):
         angle_ball -= 80 * dt
 
-    screen.fill(toledo.graphics.color.BLACK)
+    screen.fill(toledo.graphics.Color.from_name("black"))
 
     # dibujar la pelota normalmente
     screen.draw(sprite_ball, rect_ball)

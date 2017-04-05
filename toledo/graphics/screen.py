@@ -5,26 +5,55 @@ class Screen:
     '''
     Se encarga de controlar lo que ve el jugador en la pantalla.
 
+    Parameters
+    ----------
+    size : List[int]
+        Tamaño de la pantalla, ``[w, h]``.
+
+    Notes
+    -----
     Primero se debe crear una instancia de este objeto, luego, en cada loop del
     juego uno debe (en orden):
 
     - Pintar la pantalla con ``fill()`` para tapar el frame anterior.
     - Dibujar todos los sprites con ``draw()``.
     - Actualizar la pantalla con ``update()``.
+
+    Examples
+    --------
+    Acá hay un ejemplo de uso::
+
+        # crear la pantalla
+        screen = toledo.graphics.Screen(screen_size)
+        ...
+
+        def loop(): # función ejecutada una vez en cada frame
+            ...
+
+            # pintar pantalla de negro para tapar frame anterior
+            screen.fill(toledo.graphics.color.BLACK)
+
+            # dibujar todo lo que haga falta
+            screen.draw(......)
+            screen.draw(......)
+            screen.draw(......)
+
+            # por último actualizar pantalla
+            screen.update()
+
     '''
 
     ANCHOR_TOP_LEFT = 0
+    '''
+    int : Anclaje al borde superior izquierdo. Ver función ``draw()``.
+    '''
+
     ANCHOR_CENTER   = 1
+    '''
+    int : Anclaje al centro. Ver función ``draw()``.
+    '''
 
     def __init__(self, size):
-        '''
-        Crear una pantalla a partir de un tamaño.
-
-        Parameters
-        ----------
-        size : List[int]
-            Tamaño de la pantalla, ``[w, h]``.
-        '''
         self._screen = pygame.display.set_mode(size)
 
 
@@ -37,7 +66,7 @@ class Screen:
         color : toledo.graphics.Color
             Color a usar.
         '''
-        self._screen.fill(color.get_components())
+        self._screen.fill(color.get_tuple())
 
 
     def draw(self, sprite, rect, angle=0, smooth=False, anchor=None):
@@ -66,7 +95,7 @@ class Screen:
 
         Examples
         --------
-        ::
+        Ejemplo de uso::
 
             screen = toledo.graphics.Screen(screen_size)
             ...

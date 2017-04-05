@@ -46,7 +46,7 @@ def myloop(dt):
 
     # pintar la pantalla de negro para tapar el frame anterior, fijense que pasa
     # si borran o comentan esta linea
-    screen.fill(toledo.graphics.color.BLACK)
+    screen.fill(toledo.graphics.Color.from_name("black"))
     # dibujar la pelota en las coodenadas del rectangulo
     screen.draw(sprite_ball, rect_ball)
     # mostrar la pantalla

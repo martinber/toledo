@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>toledo.graphics.Sprite class &mdash; toledo 0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="toledo 0.2 documentation" href="index.html"/>
+        <link rel="up" title="toledo.graphics package" href="toledo.graphics.html"/>
+        <link rel="next" title="toledo.input package" href="toledo.input.html"/>
+        <link rel="prev" title="toledo.graphics.Screen class" href="toledo.graphics.Screen.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> toledo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="toledo.html">toledo package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="toledo.graphics.html">toledo.graphics package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="toledo.graphics.Color.html">toledo.graphics.Color class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toledo.graphics.Screen.html">toledo.graphics.Screen class</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">toledo.graphics.Sprite class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toledo.input.html">toledo.input package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toledo.util.html">toledo.util package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toledo.Controller.html">toledo.Controller class</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">toledo</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="toledo.html">toledo package</a> &raquo;</li>
+        
+          <li><a href="toledo.graphics.html">toledo.graphics package</a> &raquo;</li>
+        
+      <li>toledo.graphics.Sprite class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/toledo.graphics.Sprite.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="toledo-graphics-sprite-class">
+<h1>toledo.graphics.Sprite class<a class="headerlink" href="#toledo-graphics-sprite-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="toledo.graphics.Sprite">
+<em class="property">class </em><code class="descclassname">toledo.graphics.</code><code class="descname">Sprite</code><span class="sig-paren">(</span><em>image_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/sprite.html#Sprite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Sprite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Representa a un sprite, que vendría a ser una imagen que va a ser mostrada
+en la pantalla.</p>
+<p>Recomendado usar imágenes PNG de 24 o 32 bits.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image_path</strong> (<em>str</em>) &#8211; Path de la imagen, por ejemplo: <code class="docutils literal"><span class="pre">&quot;./sprites/auto.png&quot;</span></code>.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="toledo.graphics.Sprite.get_pygame_image">
+<code class="descname">get_pygame_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/sprite.html#Sprite.get_pygame_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Sprite.get_pygame_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve la imagen o surface de <code class="docutils literal"><span class="pre">pygame</span></code>. Normalmente no deberían usar
+esta funcion a no ser que sepan lo que hacen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Surface de <code class="docutils literal"><span class="pre">pygame</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">pygame.Surface</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="toledo.input.html" class="btn btn-neutral float-right" title="toledo.input package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="toledo.graphics.Screen.html" class="btn btn-neutral" title="toledo.graphics.Screen class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, toboso-team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

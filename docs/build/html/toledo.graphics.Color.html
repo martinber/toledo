@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>toledo.graphics.Color class &mdash; toledo 0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="toledo 0.2 documentation" href="index.html"/>
+        <link rel="up" title="toledo.graphics package" href="toledo.graphics.html"/>
+        <link rel="next" title="toledo.graphics.Screen class" href="toledo.graphics.Screen.html"/>
+        <link rel="prev" title="toledo.graphics package" href="toledo.graphics.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> toledo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="toledo.html">toledo package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="toledo.graphics.html">toledo.graphics package</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">toledo.graphics.Color class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toledo.graphics.Screen.html">toledo.graphics.Screen class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toledo.graphics.Sprite.html">toledo.graphics.Sprite class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toledo.input.html">toledo.input package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toledo.util.html">toledo.util package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toledo.Controller.html">toledo.Controller class</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">toledo</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="toledo.html">toledo package</a> &raquo;</li>
+        
+          <li><a href="toledo.graphics.html">toledo.graphics package</a> &raquo;</li>
+        
+      <li>toledo.graphics.Color class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/toledo.graphics.Color.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="toledo-graphics-color-class">
+<h1>toledo.graphics.Color class<a class="headerlink" href="#toledo-graphics-color-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="toledo.graphics.Color">
+<em class="property">class </em><code class="descclassname">toledo.graphics.</code><code class="descname">Color</code><a class="reference internal" href="_modules/toledo/graphics/color.html#Color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Representa a un color.</p>
+<p class="rubric">Examples</p>
+<p>Hay varias formas de crear un color, acá hay varias formas:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># crear un color vacío, que por defecto es negro</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">toledo</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">Color</span><span class="p">()</span>
+
+<span class="c1"># crear un color a partir de un tuple de componentes</span>
+<span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">toledo</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">Color</span><span class="o">.</span><span class="n">from_tuple</span><span class="p">(</span><span class="nb">tuple</span><span class="p">)</span>
+
+<span class="c1"># crear un color desde sus componentes</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">toledo</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">Color</span><span class="o">.</span><span class="n">from_values</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># crear un color ya definido</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">toledo</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">Color</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">toledo</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">Color</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="toledo.graphics.Color.from_name">
+<em class="property">classmethod </em><code class="descname">from_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/color.html#Color.from_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Color.from_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crear color desde un nombre, usando una constante ya definida.</p>
+<p>Se puede usar cualquiera de los nombres definidos:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&quot;black&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;white&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;red&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;green&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;blue&quot;</span></code></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>components</strong> (<em>str</em>) &#8211; Nombre que representa el color a crear.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Instancia de un color.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#toledo.graphics.Color" title="toledo.graphics.Color">toledo.graphics.Color</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="toledo.graphics.Color.from_tuple">
+<em class="property">classmethod </em><code class="descname">from_tuple</code><span class="sig-paren">(</span><em>components</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/color.html#Color.from_tuple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Color.from_tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crear color desde un tuple (r, g, b).</p>
+<p>Los valores deben ser enteros entre 0 y 255.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>components</strong> (<em>Tuple</em><em>[</em><em>int</em><em>]</em><em></em>) &#8211; Componentes RGB a usar, es un tuple (r, g, b) con enteros entre 0 y
+255.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Instancia de un color.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#toledo.graphics.Color" title="toledo.graphics.Color">toledo.graphics.Color</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="toledo.graphics.Color.from_values">
+<em class="property">classmethod </em><code class="descname">from_values</code><span class="sig-paren">(</span><em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/color.html#Color.from_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Color.from_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crear color desde 3 enteros que corresponden a R, G y B.</p>
+<p>Los valores deben ser enteros entre 0 y 255.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<em>int</em>) &#8211; Componente roja. Entero de 0 a 255.</li>
+<li><strong>g</strong> (<em>int</em>) &#8211; Componente verde. Entero de 0 a 255.</li>
+<li><strong>b</strong> (<em>int</em>) &#8211; Componente azul. Entero de 0 a 255.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instancia de un color.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toledo.graphics.Color" title="toledo.graphics.Color">toledo.graphics.Color</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="toledo.graphics.Color.get_tuple">
+<code class="descname">get_tuple</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/color.html#Color.get_tuple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Color.get_tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtener componentes como un tuple (r, g, b)</p>
+<p>Los valores están entre 0 y 255.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Tuple que representa a las componentes R, G y B.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Tuple[int]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="toledo.graphics.Color.set_tuple">
+<code class="descname">set_tuple</code><span class="sig-paren">(</span><em>components</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/color.html#Color.set_tuple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Color.set_tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setear color desde un tuple (r, g, b).</p>
+<p>Los valores están entre 0 y 255.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>components</strong> (<em>Tuple</em><em>[</em><em>int</em><em>]</em><em></em>) &#8211; Componentes RGB a usar, es un tuple (r, g, b) con enteros entre 0 y
+255.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="toledo.graphics.Color.set_values">
+<code class="descname">set_values</code><span class="sig-paren">(</span><em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/graphics/color.html#Color.set_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.graphics.Color.set_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setear color desde 3 valores RGB.</p>
+<p>Los valores están entre 0 y 255.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>r</strong> (<em>int</em>) &#8211; Componente roja. Entero de 0 a 255.</li>
+<li><strong>g</strong> (<em>int</em>) &#8211; Componente verde. Entero de 0 a 255.</li>
+<li><strong>b</strong> (<em>int</em>) &#8211; Componente azul. Entero de 0 a 255.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="toledo.graphics.Screen.html" class="btn btn-neutral float-right" title="toledo.graphics.Screen class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="toledo.graphics.html" class="btn btn-neutral" title="toledo.graphics package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, toboso-team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
