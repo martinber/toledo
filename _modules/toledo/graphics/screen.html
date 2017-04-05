@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>toledo.graphics.screen &#8212; toledo 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for toledo.graphics.screen</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<div class="viewcode-block" id="Screen"><a class="viewcode-back" href="../../../toledo.graphics.html#toledo.graphics.screen.Screen">[docs]</a><span class="k">class</span> <span class="nc">Screen</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Se encarga de controlar lo que ve el jugador en la pantalla.</span>
+
+<span class="sd">    Primero se debe crear una instancia de este objeto, luego, en cada loop del</span>
+<span class="sd">    juego uno debe (en orden):</span>
+
+<span class="sd">    - Pintar la pantalla con ``fill()`` para tapar el frame anterior.</span>
+<span class="sd">    - Dibujar todos los sprites con ``draw()``.</span>
+<span class="sd">    - Actualizar la pantalla con ``update()``.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">ANCHOR_TOP_LEFT</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ANCHOR_CENTER</span>   <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Crear una pantalla a partir de un tamaño.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        size : List[int]</span>
+<span class="sd">            Tamaño de la pantalla, ``[w, h]``.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Screen.fill"><a class="viewcode-back" href="../../../toledo.graphics.html#toledo.graphics.screen.Screen.fill">[docs]</a>    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Pintar la pantalla completamente de un color.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        color : toledo.graphics.Color</span>
+<span class="sd">            Color a usar.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">color</span><span class="o">.</span><span class="n">get_components</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Screen.draw"><a class="viewcode-back" href="../../../toledo.graphics.html#toledo.graphics.screen.Screen.draw">[docs]</a>    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sprite</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Dibujar un sprite en la pantalla.</span>
+
+<span class="sd">        No se verán los cambios hasta que se llame a la función</span>
+<span class="sd">        ``Screen.update()``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sprite : toledo.graphics.Sprite</span>
+<span class="sd">            Sprite a dibujar.</span>
+<span class="sd">        rect : toledo.Rect</span>
+<span class="sd">            Posición en la pantalla en donde dibujar. Se respeta el tamaño dado.</span>
+<span class="sd">        angle : :obj:`float`, optional</span>
+<span class="sd">            Ángulo de rotación en grados, sentido contrario a las agujas del</span>
+<span class="sd">            reloj.</span>
+<span class="sd">        smooth : :obj:`bool`, optional</span>
+<span class="sd">            Si usar o no antialiasing.</span>
+<span class="sd">        anchor : :obj:`int`, optional</span>
+<span class="sd">            Tipo de anclaje a usar, (por ej. si centrado o esquinado). Usar las</span>
+<span class="sd">            constantes definidas. Ej: ``Screen.ANCHOR_CENTER`` o</span>
+<span class="sd">            ``Screen.ANCHOR_TOP_LEFT``.</span>
+<span class="sd">            Por defecto es un anclaje top-left.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            screen = toledo.graphics.Screen(screen_size)</span>
+<span class="sd">            ...</span>
+<span class="sd">            def loop():</span>
+<span class="sd">                ...</span>
+<span class="sd">                screen.draw(sprite_ball, rect_ball, angle=angle_ball,</span>
+<span class="sd">                            smooth=True, anchor=screen.ANCHOR_TOP_LEFT)</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">get_pygame_image</span><span class="p">()</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">w</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">h</span><span class="p">)]</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span> <span class="o">%</span> <span class="mi">360</span>
+
+        <span class="k">if</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_pos</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">anchor</span><span class="p">)</span>
+        <span class="c1"># el orden importa</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scale_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">smooth</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rotate_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">smooth</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Screen.update"><a class="viewcode-back" href="../../../toledo.graphics.html#toledo.graphics.screen.Screen.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Actualiza lo que se ve en pantalla.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_scale_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">smooth</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Escalar imagen al tamaño dado.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        image : pygame.Surface</span>
+<span class="sd">            Imagen a escalar.</span>
+<span class="sd">        size : List[int]</span>
+<span class="sd">            Tamaño a escalar, ``[w, h]``.</span>
+<span class="sd">        smooth : bool</span>
+<span class="sd">            Si usar o no antialiasing.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pygame.Surface</span>
+<span class="sd">            Imagen escalada.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># hacer copia para no modificar la lista original</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">size</span><span class="p">[:]</span>
+
+        <span class="k">if</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">smooth</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">smoothscale</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_rotate_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">smooth</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Rotar imagen al ángulo dado.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        image : pygame.Surface</span>
+<span class="sd">            Imagen a escalar.</span>
+<span class="sd">        angle : float</span>
+<span class="sd">            Ángulo de rotación en grados, sentido contrario a las agujas del</span>
+<span class="sd">            reloj.</span>
+<span class="sd">        smooth : bool</span>
+<span class="sd">            Si usar o no antialiasing.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pygame.Surface</span>
+<span class="sd">            Imagen rotada.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">smooth</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotozoom</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_get_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">anchor</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Calcular la posición correcta en donde dibujar la textura. ``pygame``</span>
+<span class="sd">        necesita la posición de la esquina superior izquierda.</span>
+
+<span class="sd">        Implementa el comportamiento de los anchors.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        rect : toledo.Rect</span>
+<span class="sd">            Posición y tamaño de la imagen dada por el usuario (no es el tamaño</span>
+<span class="sd">            final luego de la rotación).</span>
+<span class="sd">        angle : float</span>
+<span class="sd">            Ángulo de rotación en grados, sentido contrario a las agujas del</span>
+<span class="sd">            reloj.</span>
+<span class="sd">        anchor : int</span>
+<span class="sd">            Tipo de anclaje a usar.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[int]</span>
+<span class="sd">            Posición en la cual hay que dibujar la imagen con ``pygame`` para</span>
+<span class="sd">            que quede en la posición correcta. ``[x, y]``.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="n">angle_rads</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+        <span class="c1"># calcular tamaño de la imagen ya rotada, siempre positivo. Puede que</span>
+        <span class="c1"># haya una mejor forma pero funciona</span>
+        <span class="n">rotated_size</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="nb">abs</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">w</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rads</span><span class="p">))</span> <span class="o">+</span>
+                    <span class="nb">abs</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rads</span><span class="p">)),</span>
+
+            <span class="nb">abs</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rads</span><span class="p">))</span> <span class="o">+</span>
+                    <span class="nb">abs</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">w</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rads</span><span class="p">))</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">anchor</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">anchor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ANCHOR_TOP_LEFT</span>
+
+        <span class="k">if</span> <span class="n">anchor</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">ANCHOR_CENTER</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">rotated_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+                   <span class="n">rect</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">rotated_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]</span>
+
+        <span class="k">elif</span> <span class="n">anchor</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">ANCHOR_TOP_LEFT</span><span class="p">:</span>
+            <span class="c1"># corrección para imagenes rotadas. También puede que haya una mejor</span>
+            <span class="c1"># forma</span>
+            <span class="k">if</span> <span class="n">angle</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">angle</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">:</span>
+                <span class="n">correction</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="mi">0</span><span class="p">,</span>
+                    <span class="nb">abs</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">w</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rads</span><span class="p">))</span>
+                <span class="p">]</span>
+            <span class="k">elif</span> <span class="n">angle</span> <span class="o">&gt;</span> <span class="mi">90</span> <span class="ow">and</span> <span class="n">angle</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">:</span>
+                <span class="n">correction</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="nb">abs</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">w</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rads</span><span class="p">)),</span>
+                    <span class="n">rotated_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="p">]</span>
+            <span class="k">elif</span> <span class="n">angle</span> <span class="o">&gt;</span> <span class="mi">180</span> <span class="ow">and</span> <span class="n">angle</span> <span class="o">&lt;=</span> <span class="mi">270</span><span class="p">:</span>
+                <span class="n">correction</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">rotated_size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="nb">abs</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rads</span><span class="p">)),</span>
+                <span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">correction</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="nb">abs</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rads</span><span class="p">)),</span>
+                    <span class="mi">0</span>
+                <span class="p">]</span>
+
+            <span class="c1"># cuando el ancho es negativo, el borde izquierdo pasa a ser el que</span>
+            <span class="c1"># originalmente era el derecho</span>
+            <span class="k">if</span> <span class="n">rect</span><span class="o">.</span><span class="n">w</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">correction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># lo mismo para el borde superior</span>
+            <span class="k">if</span> <span class="n">rect</span><span class="o">.</span><span class="n">h</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">h</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">correction</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">pos</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, toboso-team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
