@@ -6,7 +6,7 @@
 Documentación de toledo!
 ========================
 
-Acá está toda la documentación, acá está el `repositorio`_ (código fuente).
+En este sitio está toda la documentación, acá está el `repositorio`_ (código fuente).
 
 .. toctree::
    :maxdepth: 3

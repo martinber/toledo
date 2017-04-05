@@ -161,11 +161,41 @@
 <span></span><span class="kn">import</span> <span class="nn">pygame</span>
 
 <div class="viewcode-block" id="Rect"><a class="viewcode-back" href="../../../toledo.util.Rect.html#toledo.util.Rect">[docs]</a><span class="k">class</span> <span class="nc">Rect</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Representa a un rectángulo, tiene una posición y un tamaño.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : int</span>
+<span class="sd">        Posición x del borde superior izquierdo</span>
+<span class="sd">    y : int</span>
+<span class="sd">        Posición y del borde superior izquierdo</span>
+<span class="sd">    w : int</span>
+<span class="sd">        Ancho del rectángulo</span>
+<span class="sd">    h : int</span>
+<span class="sd">        Alto del rectángulo</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    int : Posición x del borde superior izquierdo</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    int : Posición y del borde superior izquierdo</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">w</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    int : Ancho del rectángulo</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    int : Alto del rectángulo</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
@@ -175,6 +205,15 @@
 
 
 <div class="viewcode-block" id="Rect.get_pygame_rect"><a class="viewcode-back" href="../../../toledo.util.Rect.html#toledo.util.Rect.get_pygame_rect">[docs]</a>    <span class="k">def</span> <span class="nf">get_pygame_rect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Devuelve un rectángulo de tipo ``pygame.Rect`` para ser usado en</span>
+<span class="sd">        ``pygame``</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pygame.Rect</span>
+<span class="sd">            Rectángulo que se puede usar en las funciones de ``pygame``</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">return</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Rect</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">])</span></div></div>
 </pre></div>
 

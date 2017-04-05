@@ -173,15 +173,61 @@
 <dt id="toledo.Controller">
 <em class="property">class </em><code class="descclassname">toledo.</code><code class="descname">Controller</code><span class="sig-paren">(</span><em>loop</em>, <em>fps</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/controller.html#Controller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.Controller" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Objeto que se encarga del flujo del programa, del loop principal.</p>
+<p>Llama a la función dada un cierto número de veces por segundo implementando
+un loop. Además chequea si el juego está siendo cerrado por el usuario
+leyendo los eventos de <code class="docutils literal"><span class="pre">pygame</span></code>.</p>
+<p>Se debe llamar a la función <code class="docutils literal"><span class="pre">start()</span></code> que comienza el loop principal.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tiempo entre frame actual y anterior en segundos:&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="n">control</span> <span class="o">=</span> <span class="n">toledo</span><span class="o">.</span><span class="n">Controller</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">control</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El juego se está cerrando&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loop</strong> (<em>Callable</em><em>[</em><em></em><em>[</em><em>float</em><em>]</em><em></em><em>, </em><em></em><em>[</em><em>None</em><em>]</em><em></em><em>]</em><em></em>) &#8211; Función a llamar varias veces por segundo. La función debe aceptar un
+argumento numérico que es el deltatime entre el frame actual y el
+anterior.</li>
+<li><strong>fps</strong> (<em>float</em>) &#8211; Número de veces por segundo que se llamará a la función dada.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="toledo.Controller.get_fps">
 <code class="descname">get_fps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/controller.html#Controller.get_fps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.Controller.get_fps" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Devuelve el parámetro <code class="docutils literal"><span class="pre">fps</span></code> dado en el constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">FPS que se están respetando actualmente.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="toledo.Controller.start">
 <code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toledo/controller.html#Controller.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toledo.Controller.start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Comenzar a llamar a la función dada.</p>
+<p>Una vez que el programa entra a esta función, no continúa hasta que se
+cierre el juego. Entonces el código que esté después de esta llamada se
+ejecutará recién en el cierre del juego.</p>
+<p>Detecta cuando el jugador cierra el juego y termina la ejecución del
+loop.</p>
+</dd></dl>
 
 </dd></dl>
 
