@@ -1,152 +1,383 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>toledo.graphics.color &mdash; toledo 0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
     
-    <title>toledo.graphics.color &#8212; toledo 0.2 documentation</title>
-    
-    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../../',
-        VERSION:     '0.2',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="toledo 0.2 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
    
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="wy-grid-for-nav">
 
-  </head>
-  <body role="document">
-  
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+          
+            <a href="../../../index.html" class="icon icon-home"> toledo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../toledo.html">toledo package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cambios.html">Cambios en versiones y TODO</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">toledo</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>toledo.graphics.color</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <h1>Source code for toledo.graphics.color</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="Color"><a class="viewcode-back" href="../../../toledo.graphics.html#toledo.graphics.color.Color">[docs]</a><span></span><span class="k">class</span> <span class="nc">Color</span><span class="p">:</span>
+<div class="viewcode-block" id="Color"><a class="viewcode-back" href="../../../toledo.graphics.Color.html#toledo.graphics.Color">[docs]</a><span></span><span class="k">class</span> <span class="nc">Color</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Representa a un color.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Hay varias formas de crear un color, acá hay varias formas::</span>
+
+<span class="sd">        # crear un color vacío, que por defecto es negro</span>
+<span class="sd">        c = toledo.graphics.Color()</span>
+
+<span class="sd">        # crear un color a partir de un tuple de componentes</span>
+<span class="sd">        tuple = (r, g, b)</span>
+<span class="sd">        c = toledo.graphics.Color.from_tuple(tuple)</span>
+
+<span class="sd">        # crear un color desde sus componentes</span>
+<span class="sd">        c = toledo.graphics.Color.from_values(r, g, b)</span>
+
+<span class="sd">        # crear un color ya definido</span>
+<span class="sd">        c = toledo.graphics.Color.from_name(&quot;red&quot;)</span>
+<span class="sd">        c = toledo.graphics.Color.from_name(&quot;black&quot;)</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># definiciones de colores</span>
+    <span class="n">_NAMES</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;black&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="s2">&quot;white&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+        <span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="s2">&quot;green&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="p">}</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Crea un color negro</span>
-<span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 
     <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="Color.from_tuple"><a class="viewcode-back" href="../../../toledo.graphics.html#toledo.graphics.color.Color.from_tuple">[docs]</a>    <span class="k">def</span> <span class="nf">from_tuple</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
+<div class="viewcode-block" id="Color.from_tuple"><a class="viewcode-back" href="../../../toledo.graphics.Color.html#toledo.graphics.Color.from_tuple">[docs]</a>    <span class="k">def</span> <span class="nf">from_tuple</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Crear color desde un tuple (r, g, b)</span>
+<span class="sd">        Crear color desde un tuple (r, g, b).</span>
 
-<span class="sd">        Los valores están entre 0 y 255.</span>
+<span class="sd">        Los valores deben ser enteros entre 0 y 255.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        components : Tuple[int]</span>
+<span class="sd">            Componentes RGB a usar, es un tuple (r, g, b) con enteros entre 0 y</span>
+<span class="sd">            255.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        toledo.graphics.Color</span>
+<span class="sd">            Instancia de un color.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">c</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
-        <span class="n">c</span><span class="o">.</span><span class="n">set_components</span><span class="p">(</span><span class="n">components</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">set_tuple</span><span class="p">(</span><span class="n">components</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">c</span></div>
 
 
     <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="Color.from_values"><a class="viewcode-back" href="../../../toledo.graphics.html#toledo.graphics.color.Color.from_values">[docs]</a>    <span class="k">def</span> <span class="nf">from_values</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="viewcode-block" id="Color.from_values"><a class="viewcode-back" href="../../../toledo.graphics.Color.html#toledo.graphics.Color.from_values">[docs]</a>    <span class="k">def</span> <span class="nf">from_values</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Crear color desde 3 valores RGB.</span>
+<span class="sd">        Crear color desde 3 enteros que corresponden a R, G y B.</span>
 
-<span class="sd">        Los valores están entre 0 y 255.</span>
+<span class="sd">        Los valores deben ser enteros entre 0 y 255.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        r : int</span>
+<span class="sd">            Componente roja. Entero de 0 a 255.</span>
+<span class="sd">        g : int</span>
+<span class="sd">            Componente verde. Entero de 0 a 255.</span>
+<span class="sd">        b : int</span>
+<span class="sd">            Componente azul. Entero de 0 a 255.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        toledo.graphics.Color</span>
+<span class="sd">            Instancia de un color.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">c</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
-        <span class="n">c</span><span class="o">.</span><span class="n">set_components</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">set_values</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">c</span></div>
 
 
-    <span class="k">def</span> <span class="nf">set_components</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Color.from_name"><a class="viewcode-back" href="../../../toledo.graphics.Color.html#toledo.graphics.Color.from_name">[docs]</a>    <span class="k">def</span> <span class="nf">from_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Setear color desde un tuple (r, g, b)</span>
+<span class="sd">        Crear color desde un nombre, usando una constante ya definida.</span>
+
+<span class="sd">        Se puede usar cualquiera de los nombres definidos:</span>
+
+<span class="sd">        - ``&quot;black&quot;``</span>
+<span class="sd">        - ``&quot;white&quot;``</span>
+<span class="sd">        - ``&quot;red&quot;``</span>
+<span class="sd">        - ``&quot;green&quot;``</span>
+<span class="sd">        - ``&quot;blue&quot;``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        components : str</span>
+<span class="sd">            Nombre que representa el color a crear.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        toledo.graphics.Color</span>
+<span class="sd">            Instancia de un color.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_tuple</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_NAMES</span><span class="p">[</span><span class="n">name</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="Color.set_tuple"><a class="viewcode-back" href="../../../toledo.graphics.Color.html#toledo.graphics.Color.set_tuple">[docs]</a>    <span class="k">def</span> <span class="nf">set_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setear color desde un tuple (r, g, b).</span>
 
 <span class="sd">        Los valores están entre 0 y 255.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        components : Tuple[int]</span>
+<span class="sd">            Componentes RGB a usar, es un tuple (r, g, b) con enteros entre 0 y</span>
+<span class="sd">            255.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_components</span> <span class="o">=</span> <span class="n">components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_components</span> <span class="o">=</span> <span class="n">components</span></div>
 
 
-<div class="viewcode-block" id="Color.set_components"><a class="viewcode-back" href="../../../toledo.graphics.html#toledo.graphics.color.Color.set_components">[docs]</a>    <span class="k">def</span> <span class="nf">set_components</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="viewcode-block" id="Color.set_values"><a class="viewcode-back" href="../../../toledo.graphics.Color.html#toledo.graphics.Color.set_values">[docs]</a>    <span class="k">def</span> <span class="nf">set_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Setear color desde 3 valores RGB.</span>
 
 <span class="sd">        Los valores están entre 0 y 255.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        r : int</span>
+<span class="sd">            Componente roja. Entero de 0 a 255.</span>
+<span class="sd">        g : int</span>
+<span class="sd">            Componente verde. Entero de 0 a 255.</span>
+<span class="sd">        b : int</span>
+<span class="sd">            Componente azul. Entero de 0 a 255.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Color.get_components"><a class="viewcode-back" href="../../../toledo.graphics.html#toledo.graphics.color.Color.get_components">[docs]</a>    <span class="k">def</span> <span class="nf">get_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Color.get_tuple"><a class="viewcode-back" href="../../../toledo.graphics.Color.html#toledo.graphics.Color.get_tuple">[docs]</a>    <span class="k">def</span> <span class="nf">get_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Obtener componentes como un tuple (r, g, b)</span>
 
 <span class="sd">        Los valores están entre 0 y 255.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tuple[int]</span>
+<span class="sd">            Tuple que representa a las componentes R, G y B.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_components</span></div></div>
-
-
-<span class="c1"># Definiciones de colores</span>
-<span class="n">BLACK</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">from_values</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">WHITE</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">from_values</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
 </pre></div>
 
+           </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, toboso-team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../../index.html">Documentation overview</a><ul>
-  <li><a href="../../index.html">Module code</a><ul>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="../../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2017, toboso-team.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-    </div>
 
-    
+    </section>
 
-    
-  </body>
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>
