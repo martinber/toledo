@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>toledo.input package &mdash; toledo 0.2 documentation</title>
+  <title>Desarrollo &mdash; toledo 0.2 documentation</title>
   
 
   
@@ -36,9 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="toledo 0.2 documentation" href="index.html"/>
-        <link rel="up" title="toledo package" href="toledo.html"/>
-        <link rel="next" title="toledo.input.Keyboard class" href="toledo.input.Keyboard.html"/>
-        <link rel="prev" title="toledo.graphics.Sprite class" href="toledo.graphics.Sprite.html"/> 
+        <link rel="prev" title="Cambios en versiones y TODO" href="cambios.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -93,19 +91,13 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="toledo.html">toledo package</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="toledo.graphics.html">toledo.graphics package</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">toledo.input package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="toledo.input.Keyboard.html">toledo.input.Keyboard class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="toledo.input.Mouse.html">toledo.input.Mouse class</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="toledo.util.html">toledo.util package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="toledo.Controller.html">toledo.Controller class</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="toledo.html">toledo package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cambios.html">Cambios en versiones y TODO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="desarrollo.html">Desarrollo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Desarrollo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-y-changelog">Versión y changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentacion">Documentación</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -150,15 +142,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="toledo.html">toledo package</a> &raquo;</li>
-        
-      <li>toledo.input package</li>
+      <li>Desarrollo</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/toledo.input.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/desarrollo.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -171,13 +161,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="toledo-input-package">
-<h1>toledo.input package<a class="headerlink" href="#toledo-input-package" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="toledo.input.Keyboard.html">toledo.input.Keyboard class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="toledo.input.Mouse.html">toledo.input.Mouse class</a></li>
+  <div class="section" id="desarrollo">
+<h1>Desarrollo<a class="headerlink" href="#desarrollo" title="Permalink to this headline">¶</a></h1>
+<p>Acá va la información sobre el desarrollo de <em>toledo</em>.</p>
+<div class="section" id="version-y-changelog">
+<h2>Versión y changelog<a class="headerlink" href="#version-y-changelog" title="Permalink to this headline">¶</a></h2>
+<p>La versión está hardcodeada en:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">docs/source/cambios.rst</span></code></li>
+<li><code class="docutils literal"><span class="pre">docs/source/index.rst</span></code></li>
+<li><code class="docutils literal"><span class="pre">docs/source/conf.py</span></code></li>
+<li>En una release de <em>GitHub</em></li>
 </ul>
+<p>El changelog está en:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">docs/source/cambios.rst</span></code></li>
+<li><code class="docutils literal"><span class="pre">tests/test_0.X.py</span></code></li>
+<li>En una release de <em>GitHub</em></li>
+</ul>
+</div>
+<div class="section" id="documentacion">
+<h2>Documentación<a class="headerlink" href="#documentacion" title="Permalink to this headline">¶</a></h2>
+<p>Build:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">docs</span>
+<span class="n">make</span> <span class="n">clean</span>
+<span class="n">make</span> <span class="n">html</span>
+<span class="n">cd</span> <span class="o">..</span>
+<span class="n">git</span> <span class="n">subtree</span> <span class="n">push</span> <span class="o">--</span><span class="n">prefix</span> <span class="n">docs</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">html</span> <span class="n">origin</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -191,10 +203,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="toledo.input.Keyboard.html" class="btn btn-neutral float-right" title="toledo.input.Keyboard class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="toledo.graphics.Sprite.html" class="btn btn-neutral" title="toledo.graphics.Sprite class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cambios.html" class="btn btn-neutral" title="Cambios en versiones y TODO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
