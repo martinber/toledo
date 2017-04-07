@@ -31,7 +31,7 @@ class Screen:
             ...
 
             # pintar pantalla de negro para tapar frame anterior
-            screen.fill(toledo.graphics.color.BLACK)
+            screen.fill(toledo.graphics.Color.from_name("black"))
 
             # dibujar todo lo que haga falta
             screen.draw(......)

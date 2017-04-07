@@ -26,7 +26,14 @@ toledo 0.2.5
 ^^^^^^^^^^^^
 
 - Documentación
-- No me acuerdo si cambié algo en el código
+- Cambios en ``toledo.graphics.Color``
+- No me acuerdo si algo más
+
+toledo 0.2.6
+^^^^^^^^^^^^
+
+- Corrección en  ``toledo.graphics``, ahora no hay más problemas de rendimiento
+  al dibujar Sprites grandes (o gran cantidad de sprites chicos).
 
 toledo 0.3 (en desarrollo)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
