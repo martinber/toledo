@@ -29,7 +29,7 @@ encarga de hacer todo (a escondidas usa **pygame** pero no te importa).
 
 Lo hago porque a veces **pygame** es difícil de usar o porque le faltan cosas.
 
-Actualmente la versión es **toledo 0.2**
+Actualmente la versión es **toledo 0.2.6**. Acuérdense de actualizarse!.
 
 Cómo aprender?
 ==============
@@ -52,8 +52,6 @@ Notas
   me puse a hacer la matemática para ese caso.
 - Tenemos problemas de stuttering culpa de `pygame`/`sdl`. Si uso otro método
   gasto mucha CPU, por ahora lo dejo así.
-- Hay problemas de rendmimiento cuando escalo las texturas muy grandes. No se si
-  es problema de escalado o de dibujado de texturas grandes.
 - Los sprites vibran mucho cuando son rotados debido a redondeos, no sé como
   solucionar eso.
 

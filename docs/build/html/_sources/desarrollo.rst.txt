@@ -6,7 +6,7 @@ Acá va la información sobre el desarrollo de *toledo*.
 Versión y changelog
 -------------------
 
-La versión está hardcodeada en:
+El número de versión está hardcodeado en:
 
 - ``docs/source/cambios.rst``
 - ``docs/source/index.rst``
