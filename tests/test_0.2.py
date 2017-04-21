@@ -18,11 +18,12 @@ Se prueban las funciones de toledo 0.2:
     - Deltatime
 '''
 
-# ignoren esto
-import sys
-sys.path.append("../")
-
+# después va a hacer falta para obtener el path a este archivo
+import os
+# importar toledo, tiene que estar la carpeta de toledo junto a este archivo,
+# sino hagan un link a la carpeta (actualmente hay un link a la carpeta)
 import toledo
+
 
 screen_size = [1000, 800]
 screen = toledo.graphics.Screen(screen_size)
@@ -31,7 +32,8 @@ keyboard = toledo.input.Keyboard()
 # objeto que maneja todo lo que sea el mouse
 mouse = toledo.input.Mouse()
 
-sprite_ball = toledo.graphics.Sprite("./test_assets/ball.png")
+current_dir = os.path.dirname(__file__)
+sprite_ball = toledo.graphics.Sprite(current_dir + "/test_assets/ball.png")
 
 # pelota que se va a mover con el mouse
 rect_ball = toledo.util.Rect(0, 0, 111, 111)

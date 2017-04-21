@@ -11,12 +11,12 @@ Se prueban las funciones de toledo 0.1:
     - Dibujar sprites (sin rotar ni escalar)
 '''
 
-# ignoren esto
-import sys
-sys.path.append("../")
-
-# importar toledo
+# después va a hacer falta para obtener el path a este archivo
+import os
+# importar toledo, tiene que estar la carpeta de toledo junto a este archivo,
+# sino hagan un link a la carpeta (actualmente hay un link a la carpeta)
 import toledo
+
 
 # crear pantalla, hay que darle el tamano de la pantalla en un vector
 tamano_pantalla = [1000, 800]
@@ -25,8 +25,11 @@ screen = toledo.graphics.Screen(tamano_pantalla)
 # crear objeto que maneja todo lo que sea teclado
 keyboard = toledo.input.Keyboard()
 
+# obtener path a este archivo, para después obtener el path relativo a las
+# imágenes
+current_dir = os.path.dirname(__file__)
 # cargar la imagen de una pelota
-sprite_ball = toledo.graphics.Sprite("./test_assets/ball.png")
+sprite_ball = toledo.graphics.Sprite(current_dir + "/test_assets/ball.png")
 # crear un rectangulo que va a representar a la pelota, (x, y, w, h)
 rect_ball = toledo.util.Rect(0, 0, 111, 111)
 
