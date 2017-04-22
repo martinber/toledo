@@ -20,9 +20,5 @@ import toledo
 import juego
 
 juego = juego.Juego()
-
-print("Hola, el juego está por empezar")
-
 juego.iniciar()
 
-print("Nos vemos, gracias por jugar")

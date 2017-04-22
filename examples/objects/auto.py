@@ -1,6 +1,6 @@
 import math
 import toledo
-import bala
+import bomba
 
 
 class Auto:
@@ -34,6 +34,14 @@ class Auto:
         # obtener sprite
         self.sprite = juego.sprite_auto
 
+        # setear variables
+        self.maxvel = 200
+        self.minvel = -100 # marcha atrás
+        self.aceleracion = 130
+        self.freno = -300
+        self.marcha_atras = -90
+        self.rozamiento = 50
+
 
     def loop(self, dt):
         # disminuir el tiempo de reload, ``dt`` es el tiempo pasado entre el
@@ -63,7 +71,7 @@ class Auto:
         '''
         # guardar en variable temporal porque el nombre es largo
         s = self.juego.pantalla
-        s.draw(self.sprite, self.rect, self.angulo, s.ANCHOR_CENTER)
+        s.draw(self.sprite, self.rect, self.angulo, anchor=s.ANCHOR_CENTER)
 
 
     def mover(self, dt):
@@ -80,26 +88,47 @@ class Auto:
         t = self.juego.teclado
 
         if t.is_pressed(t.K_UP):
+            # frenar
+            if self.velocidad < 0:
+                self.velocidad -= self.freno * dt
+                # para que no haga hacia delante, ya que está frenando
+                if self.velocidad > 0:
+                    self.velocidad = 0
+
             # acelerar
-            self.velocidad += 30 * dt
+            else:
+                self.velocidad += self.aceleracion * dt
 
         if t.is_pressed(t.K_DOWN):
             # frenar
             if self.velocidad > 0:
-                self.velocidad -= 60 * dt
+                self.velocidad += self.freno * dt
                 # para que no haga marcha atrás, ya que está frenando
                 if self.velocidad < 0:
                     self.velocidad = 0
 
             # marcha atrás
             else:
-                self.velocidad -= 10 * dt
+                self.velocidad += self.marcha_atras * dt
+
+        # aplicar rozamiento
+        if self.velocidad > 0:
+            self.velocidad -= self.rozamiento * dt
+            # para que se pase para el otro lado
+            if self.velocidad < 0:
+                self.velocidad = 0
+        else:
+            self.velocidad += self.rozamiento * dt
+            # para que se pase para el otro lado
+            if self.velocidad > 0:
+                self.velocidad = 0
+
 
         # limitar velocidad
-        if self.velocidad > 200:
-            self.velocidad = 200
-        elif self.velocidad < 50:
-            self.velocidad = 50
+        if self.velocidad > self.maxvel:
+            self.velocidad = self.maxvel
+        elif self.velocidad < self.minvel:
+            self.velocidad = self.minvel
 
         # doblar (cantidad proporcional a la velocidad)
         if t.is_pressed(t.K_RIGHT):
@@ -118,11 +147,40 @@ class Auto:
         '''
         Intentar disparar (antes mira si el arma está recargada).
         '''
-        pass
+        print("a")
+        self.juego.mundo.eliminar(self)
 
 
     def checkear_colisiones(self):
         '''
         Ver si estoy chocando una bomba o si me estoy yendo de la pantalla
         '''
-        pass
+        # mirar todos los objetos del mundo
+        objetos = self.juego.mundo.objetos
+        for objeto in objetos:
+            # si el objeto es una bomba
+            if type(objeto) is bomba.Bomba:
+                # ver si hay colision
+                distancia_x = abs(self.rect.x - objeto.rect.x)
+                distancia_y = abs(self.rect.y - objeto.rect.y)
+                distancia = math.sqrt(distancia_x**2 + distancia_y**2)
+                if distancia < 25: # suma de ambos radios de 25/2
+                    # borrarse a si mismo y a la bomba
+                    self.juego.mundo.eliminar(self)
+                    self.juego.mundo.eliminar(objeto)
+
+        # ver si se va de la pantalla
+        if self.rect.x < 0:
+            self.rect.x = 0
+            self.velocidad = 0
+        if self.rect.y < 0:
+            self.rect.y = 0
+            self.velocidad = 0
+        if self.rect.x > self.juego.tamano_pantalla[0]:
+            self.rect.x = self.juego.tamano_pantalla[0]
+            self.velocidad = 0
+        if self.rect.y > self.juego.tamano_pantalla[1]:
+            self.rect.y = self.juego.tamano_pantalla[1]
+            self.velocidad = 0
+
+

@@ -1,5 +1,4 @@
 import toledo
-import juego
 
 import auto
 import bomba
@@ -28,8 +27,8 @@ class Mundo:
 
         # crear objetos y agregarlos a la lista
         self.objetos.append(auto.Auto(self.juego, 100, 100)) # crear auto
-        #  for i in range(10): # para crear 10 bombas
-            #  self.objetos.append(bomba.Bomba()) # bomba en posición aleatoria
+        for i in range(10): # para crear 10 bombas
+            self.objetos.append(bomba.Bomba(juego)) # bomba en posición aleatoria
 
         # cargar fondo y un rectángulo que dice donde se dibujará
         self.sprite_fondo = juego.sprite_fondo
@@ -53,3 +52,16 @@ class Mundo:
         for objeto in self.objetos:
             objeto.dibujar()
         self.juego.pantalla.update()
+
+
+    def eliminar(self, objeto):
+        '''
+        Borrar del mundo al objeto dado.
+
+        Buscar al objeto dado en la lista de objetos, y al encontrarlo sacarlo
+        de la lista.
+        '''
+        for i in range(len(self.objetos)):
+            if objeto is self.objetos[i]:
+                self.objetos.pop(i)
+                break
