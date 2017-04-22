@@ -14,7 +14,7 @@ class Sprite:
     '''
 
     def __init__(self, image_path):
-        self._image = pygame.image.load(image_path).convert()
+        self._image = pygame.image.load(image_path).convert_alpha()
 
 
     def get_pygame_image(self):
