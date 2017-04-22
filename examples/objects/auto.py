@@ -1,6 +1,7 @@
 import math
 import toledo
 import bomba
+import bala
 
 
 class Auto:
@@ -147,8 +148,15 @@ class Auto:
         '''
         Intentar disparar (antes mira si el arma está recargada).
         '''
-        print("a")
-        self.juego.mundo.eliminar(self)
+        if self.reload == 0:
+            # crear bala (variable temporal)
+            b = bala.Bala(self.juego, self.rect.x, self.rect.y, 300, self.angulo)
+
+            # guardar la bala en la lista de objetos del mundo
+            self.juego.mundo.objetos.append(b)
+
+            # poner el reload en 0.8 segundos
+            self.reload = 0.8
 
 
     def checkear_colisiones(self):
