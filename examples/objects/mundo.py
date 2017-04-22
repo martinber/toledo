@@ -15,26 +15,25 @@ class Mundo:
     de la pantalla y además tiene que dibujar a todos ellos.
     '''
 
-    def __init__(self):
+    def __init__(self, juego):
         '''
         Construye al mundo.
 
         Crea todos los objetos que van a aparecer apenas empieza el nivel/juego.
         '''
+        self.juego = juego
 
         # lista con todos los objetos del mundo
         self.objetos = []
 
         # crear objetos y agregarlos a la lista
-        self.objetos.append(auto.Auto(100, 100)) # auto en la posicion 100, 100
-        for i in range(10): # para crear 10 bombas
-            self.objetos.append(bomba.Bomba()) # bomba en posición aleatoria
+        self.objetos.append(auto.Auto(self.juego, 100, 100)) # crear auto
+        #  for i in range(10): # para crear 10 bombas
+            #  self.objetos.append(bomba.Bomba()) # bomba en posición aleatoria
 
         # cargar fondo y un rectángulo que dice donde se dibujará
-        self.sprite_fondo = toledo.graphics.Sprite(
-                juego.path_assets + "/fondo.png")
-
-        self.rect_fondo = toledo.rect(
+        self.sprite_fondo = juego.sprite_fondo
+        self.rect_fondo = toledo.util.Rect(
                 0, 0, juego.tamano_pantalla[0], juego.tamano_pantalla[1])
         
 
@@ -42,7 +41,7 @@ class Mundo:
 
         # llamar al loop de todos los objetos
         for objeto in self.objetos:
-            objeto.loop()
+            objeto.loop(dt)
 
         # una vez que se haya llamado al ``loop()`` de todos los objetos
         # dibujamos a todos, pero primero dibujamos al fondo para que quede
@@ -50,6 +49,7 @@ class Mundo:
         # en juegos más complejos deberíamos llamar al ``dibujar()`` de cada
         # objeto en un orden determinado porque los últimos objetos se dibujan
         # arriba.
-        juego.pantalla.draw(self.sprite_fondo, self.rect_fondo)
+        self.juego.pantalla.draw(self.sprite_fondo, self.rect_fondo)
         for objeto in self.objetos:
             objeto.dibujar()
+        self.juego.pantalla.update()
