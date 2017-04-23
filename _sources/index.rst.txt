@@ -29,7 +29,7 @@ encarga de hacer todo (a escondidas usa **pygame** pero no te importa).
 
 Lo hago porque a veces **pygame** es difícil de usar o porque le faltan cosas.
 
-Actualmente la versión es **toledo 0.2.6**. Acuérdense de actualizarse!.
+Actualmente la versión es **toledo 0.2.7**. Acuérdense de actualizarse!.
 
 Cómo aprender?
 ==============
