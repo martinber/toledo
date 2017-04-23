@@ -1,3 +1,24 @@
+'''
+Este es un ejemplo de como usar objetos.
+
+Es buena idea no usar variables globales, conviene que todas las variables
+pertenezcan a un objeto. Los objetos que se van a usar son:
+
+* Juego: Este es la base de todo, contiene todas las cosas.
+* Mundo: Este objeto contiene a todos los objetos que están en el juego. Es como
+  un nivel del juego.
+* Bomba: Una bomba que se mueve por todos lados y explota en contacto con el
+  auto
+* Auto: Un autito controlado por el jugador que tira tiros
+* Bala: Una bala disparada por el auto
+
+En este archivo lo que hacemos es definir el objeto Juego, creamos una instancia
+y le decimos que empiece.
+
+De esta forma, como está todo dentro de un objeto, la única variable global que
+existe es ``juego``.
+'''
+
 import os
 import toledo
 import mundo
@@ -49,8 +70,8 @@ class Juego:
 
         # crear el controlador y decirle que llame al loop que pertenece a este
         # objeto
-        control = toledo.Controller(self.loop, 60)
-        control.start()
+        self.control = toledo.Controller(self.loop, 60)
+        self.control.start()
 
 
     def loop(self, dt):
@@ -65,3 +86,7 @@ class Juego:
         '''
         self.mundo.loop(dt)
 
+
+# crear una instancia del juego y decirle que empiece
+juego = Juego()
+juego.iniciar()

@@ -35,6 +35,14 @@ toledo 0.2.6
 - Corrección en  ``toledo.graphics``, ahora no hay más problemas de rendimiento
   al dibujar Sprites grandes (o gran cantidad de sprites chicos).
 
+toledo 0.2.7
+^^^^^^^^^^^^
+
+- Corrección en ``toledo.sprite``, ahora el alpha funciona de nuevo.
+- Mejoras en los tests, ahora se pueden ejecutar sin hacer ``cd`` a la carpeta
+  antes. (Ahora se usa symlink a la carpeta ``toledo``).
+- Creado un ejemplo.
+
 toledo 0.3 (en desarrollo)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
